@@ -25,7 +25,7 @@ public class TaskController {
     public ResponseEntity create(@RequestBody TaskModel task, HttpServletRequest request){
 
         var user_id = request.getAttribute("user_id");
-        task.setUser_id((UUID)user_id);
+        task.setUserId((UUID)user_id);
 
         var currentDate = LocalDateTime.now();
         if(currentDate.isAfter(task.getStart_at()) || currentDate.isAfter(task.getEnd_at())){
@@ -65,7 +65,7 @@ public class TaskController {
                     .body("Task not found");
         }
 
-        if(!task.getUser_id().equals(request.getAttribute("userId"))){
+        if(!task.getUserId().equals(request.getAttribute("userId"))){
 
             return ResponseEntity.status(HttpStatus.FORBIDDEN)
                     .body("User has not permission to update this task");

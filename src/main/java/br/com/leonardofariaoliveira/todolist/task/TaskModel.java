@@ -34,7 +34,7 @@ public class TaskModel {
     private LocalDateTime created_at;
 
 
-    private UUID user_id;
+    private UUID userId;
 
     public void setTitle(String title) throws Exception {
         if(title.length() > 50){
